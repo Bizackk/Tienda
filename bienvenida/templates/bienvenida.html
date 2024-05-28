@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca</title>
+    <link type="text/css" rel="stylesheet" href="{% static '/css/styles.css' %}">
+
+</head>
+<body>
+    {% block content %}
+    
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="registro/">Registrate!</a>
+                </li>
+                <li>
+                    <a href="login/">Logueate!</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Bienvenido a la Biblioteca</h1>
+
+    <p>Aqui les toca a ustedes jovencitos xd</p>
+
+    {% endblock %}
+</body>
+</html>
