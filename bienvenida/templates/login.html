@@ -8,6 +8,22 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
+    {% block content %}
+
+    <form action="{% url 'bienvenida' %}" method="get">
+        <button type="volver" class="botonVolver" id="Volver">Volver</button>
+    </form>
+
+    <form method="get">
+        
+        Usuario: <input type="text" id="nombre" name="nombre">
+        contraseña: <input type="password" name="contraseña" id="contraseña">
+        <button type="submit">Logueate!</button>
+
+    </form>
+
     
+
+    {% endblock %}
 </body>
 </html>
