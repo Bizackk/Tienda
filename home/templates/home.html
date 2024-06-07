@@ -8,8 +8,12 @@
 </head>
 <body>
     {% block contet %}
-    <h1>bienvenido a home</h1>
-    <h2>puto el que lo lea, juan es lindo :3</h2>
+    <h1>Home</h1>
+   
+    <form action="{% url 'cerrarSesion' %}">
+        <button type="submit">cerrar Sesion</button>
+    </form>
+
     {% endblock %}
 </body>
 </html>

@@ -5,4 +5,5 @@ from bienvenida import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('bienvenida.urls')),
+    path('home/', include('home.urls')),
 ]
