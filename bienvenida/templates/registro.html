@@ -7,7 +7,7 @@
     <title>Register</title>
     <link rel="stylesheet" href="{% static 'css/registro.css' %}">
 </head>
-<body>
+<body>    
     {% block content %}
     
     <form action="{% url 'bienvenida' %}" method="get">
@@ -26,13 +26,6 @@
         <button type="submit">Registrarse</button>
     </form>
 
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
 
     {% endblock %}
 </body>

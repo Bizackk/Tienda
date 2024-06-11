@@ -1,12 +1,11 @@
 # bienvenida/urls.py
+
 from django.urls import path
-from bienvenida import views as bienvenida_vies
-from home import views as home_views
+from . import views as bienvenida_views  
 
 urlpatterns = [
-    path('', bienvenida_vies.bienvenida, name='bienvenida'),
-    path('registro/', bienvenida_vies.registro, name='registro'),
-    path('login/', bienvenida_vies.login, name='login'),
-    path('cerrarSesion/', bienvenida_vies.cerrarSesion, name='cerrarSesion'),
-    path('home/', home_views.home, name='home'),
+    path('', bienvenida_views.bienvenida, name='bienvenida'),
+    path('registro/', bienvenida_views.registro, name='registro'),
+    path('login/', bienvenida_views.login, name='login'),
+    path('cerrarSesion/', bienvenida_views.cerrarSesion, name='cerrarSesion'),
 ]

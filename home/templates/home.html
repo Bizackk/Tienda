@@ -5,15 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
+    <link rel="stylesheet" href="{% static 'css/videojuegos.css' %}">
 </head>
 <body>
-    {% block contet %}
-    <h1>Home</h1>
-   
-    <form action="{% url 'cerrarSesion' %}">
-        <button type="submit">cerrar Sesion</button>
-    </form>
-
+    {% block content %}
+    <nav class="nav-bar">
+        <div class="nav-left">
+            <form action="{% url 'cerrarSesion' %}">
+                <button type="submit">Cerrar Sesión</button>
+            </form>
+        </div>
+        <div class="nav-center">
+            
+        </div>
+    </nav>
+    <div class="title-container">
+        <h1 class="title">Lista de Videojuegos</h1>
+    </div>
+    <div class="game-list">
+        {% for juego in juegos %}
+            <div class="game-box">
+                <a href="{% url 'detalle_juego' game_id=juego.id %}">
+                    <h2>{{ juego.name }}</h2>
+                </a>
+                <p>Autor: {% if juego.creators %}{{ juego.creators.0.name }}{% else %}Desconocido{% endif %}</p>
+                <p>Año: {% if juego.released %}{{ juego.released|date:"Y" }}{% else %}Desconocido{% endif %}</p>
+                <p>Creadores: 
+                    {% if juego.creators %}
+                        {% for creator in juego.creators %}
+                            {{ creator.name }}{% if not forloop.last %}, {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        Desconocido
+                    {% endif %}
+                </p>
+            </div>
+            {% if forloop.counter|divisibleby:3 %}
+                <div class="clearfix"></div>
+            {% endif %}
+        {% endfor %}
+    </div>
     {% endblock %}
 </body>
 </html>
